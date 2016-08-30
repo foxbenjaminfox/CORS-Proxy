@@ -8,6 +8,7 @@ var loggerOptions = require('../lib/logger-options')
 var server = new Hapi.Server({})
 var port = parseInt(process.env.CORSPROXY_PORT || process.env.PORT || 1337, 10)
 var host = (process.env.CORSPROXY_HOST || 'localhost');
+var scheme = (process.env.CORSPROXY_SCHEME || 'http');
 var proxy = server.connection({ port: port, labels: ['proxy'], host: host})
 
 server.register(require('inert'), function () {})
@@ -40,8 +41,8 @@ proxy.route({
         request.path = request.path.substr(request.params.host.length + 1)
         request.headers['host'] = request.host
         var query = request.url.search ? request.url.search : ''
-        console.log('proxy to http://' + request.host + request.path)
-        callback(null, 'http://' + request.host + request.path + query, request.headers)
+        console.log('proxy to ' + scheme + '://' + request.host + request.path)
+        callback(null, scheme + '://' + request.host + request.path + query, request.headers)
       }
     }
   }

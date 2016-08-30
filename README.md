@@ -16,6 +16,7 @@ npm install -g corsproxy
 corsproxy
 # with custom port: CORSPROXY_PORT=1234 corsproxy
 # with custom host: CORSPROXY_HOST=localhost corsproxy
+# with custom scheme: CORSPROXY_SCHEME=https corsproxy
 # with debug server: DEBUG=1 corsproxy
 ```
 
