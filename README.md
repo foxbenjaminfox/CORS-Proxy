@@ -18,6 +18,7 @@ corsproxy
 # with custom host: CORSPROXY_HOST=localhost corsproxy
 # with custom scheme: CORSPROXY_SCHEME=https corsproxy
 # with debug server: DEBUG=1 corsproxy
+# with custom payload max bytes set to 10MB (1MB by default): CORSPROXY_MAX_PAYLOAD=10485760 corsproxy
 ```
 
 ## Usage
